@@ -34,7 +34,7 @@ function renderCharacter(data) {
   let div = document.createElement('div');
 
   for (let i = 0; i < data.results.length; i++) {
-    div.innerHTML = `<img src="${data.results[i].picture.large}"><br><p>Name: ${data.results[i].name.first} ${data.results[i].name.last}</p>`;
+    div.innerHTML = `<img src="${data.results[i].picture.large}"><br>${data.results[i].name.first} ${data.results[i].name.last}</p>`;
   }
 
   content.appendChild(div);
