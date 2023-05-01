@@ -25,6 +25,7 @@ export async function fetchApi() {
   await fetch('https://randomuser.me/api/')
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       renderCharacter(data);
     });
 }
@@ -34,7 +35,8 @@ function renderCharacter(data) {
   let div = document.createElement('div');
 
   for (let i = 0; i < data.results.length; i++) {
-    div.innerHTML = `<img src="${data.results[i].picture.large}"><br>${data.results[i].name.first} ${data.results[i].name.last}</p>`;
+    div.innerHTML = `<img src="${data.results[i].picture.large}"><br>${data.results[i].name.title} ${data.results[i].name.first} ${data.results[i].name.last}<br />
+    ${data.results[i].dob.age} years old<br />${data.results[i].gender}<br />${data.results[i].location.city}, ${data.results[i].location.country}</p>`;
   }
 
   content.appendChild(div);
